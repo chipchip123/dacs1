@@ -4,22 +4,31 @@ import config.ConnectDatabase;
 import java.sql.*;
 
 public class NguoiDungModel {
-    public String kiemTraDangNhap(String tenDangNhap, String matKhau) {
-        String role = null;
-        try (Connection conn = ConnectDatabase.getConnection()) {
-            String sql = "SELECT MaNguoiDung, LaAdmin FROM NguoiDung WHERE TenDangNhap=? AND MatKhau=?";
+    public boolean kiemtradangnhapAdmin(String tenDangNhap, String matKhau){
+        try (Connection conn = ConnectDatabase.getConnection()){
+            String sql = "SELECT * FROM NguoiDung WHERE TenDangNhap = ? AND MatKhau = ? AND LaAdmin = 1";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, tenDangNhap);
-            pst.setString(2, matKhau); // giả sử đã mã hóa MD5 hoặc sẵn chuỗi mã hóa
-
+            pst.setString(2, matKhau);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                boolean isAdmin = rs.getBoolean("LaAdmin");
-                return isAdmin ? "admin" : "nhanvien";
-            }
+            return rs.next();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }   
+    
+    public boolean kiemtradangnhapNhanvien(String tenDangNhap, String matKhau){
+        try (Connection conn = ConnectDatabase.getConnection()){
+            String sql = "SELECT * FROM NhanVien WHERE TaiKhoan = ? AND MatKhau = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, tenDangNhap);
+            pst.setString(2, matKhau);
+            ResultSet rs = pst.executeQuery();
+            return rs.next();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 }
