@@ -89,4 +89,25 @@ create table MaKhuyenMai(
 	NgayKetThuc DATE,
 	CHECK (NgayBatDau <= NgayKetThuc)
 	)
-
+CREATE TABLE NhanVien (
+    Ten NVARCHAR(100) NOT NULL,
+    CCCD VARCHAR(12) NOT NULL,
+    SoDienThoai VARCHAR(15) NOT NULL,
+    TaiKhoan VARCHAR(50) PRIMARY KEY,
+    MatKhau VARCHAR(255) NOT NULL, -- có thể lưu mã hóa nếu muốn
+    NamSinh DATE,
+    GioiTinh NVARCHAR(10),
+    Email VARCHAR(100)
+);
+INSERT INTO NhanVien (
+    Ten, CCCD, SoDienThoai, TaiKhoan, MatKhau, NamSinh, GioiTinh, Email
+) VALUES (
+    N'Nguyễn Văn A',         -- Tên
+    '012345678901',          -- CCCD
+    '0901234567',            -- SĐT
+    'nv01',                  -- Tài khoản (username)
+    '123456',                -- Mật khẩu (chưa mã hóa, ví dụ)
+    '1995-08-15',            -- Năm sinh
+    N'Nam',                  -- Giới tính
+    'nguyenvana@example.com'-- Email
+);
