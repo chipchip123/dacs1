@@ -81,3 +81,12 @@ VALUES (302, N'Quần đùi', 3, 250000, 10, N'Cái', N'Còn hàng', N'quandui.j
 
 SELECT *
  FROM SanPham
+
+create table MaKhuyenMai(
+	TenKhuyenMai NVARCHAR(100),
+	PhanTram INT CHECK (PhanTram >= 0 AND PhanTram <= 100),
+	NgayBatDau DATE,
+	NgayKetThuc DATE,
+	CHECK (NgayBatDau <= NgayKetThuc)
+	)
+
