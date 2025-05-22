@@ -1,5 +1,6 @@
 package controller;
 
+import com.formdev.flatlaf.FlatLaf;
 import model.NguoiDungModel;
 import view.DangNhapView;
 import view.adminview;
@@ -10,6 +11,7 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.NhanVienView;
 
 public class DangNhapController {
     private final DangNhapView view;
@@ -22,33 +24,35 @@ public class DangNhapController {
     }
 
     private void initController() {
-        view.btnDangNhap.addActionListener(new ActionListener() {
+        view.btnDangNhap.addActionListener(new ActionListener() {           
+            private void setGiaoDien(){
+                try {
+                    UIManager.setLookAndFeel(new FlatLightLaf());
+                    for (Window window : Window.getWindows()){
+                        SwingUtilities.updateComponentTreeUI(window);
+                    }
+                } catch (UnsupportedLookAndFeelException e) {
+                    e.printStackTrace();
+                }
+            }
             @Override
             public void actionPerformed(ActionEvent e) {
                 String tenDangNhap = view.txtTenDangNhap.getText().trim();
                 String matKhau = new String(view.txtMatKhau.getPassword());
 
-                String role = model.kiemTraDangNhap(tenDangNhap, matKhau);
-                if (role == null) {
-                    view.lblThongBao.setText("Sai tên đăng nhập hoặc mật khẩu");
-                } else {
-                    // Đổi giao diện sang Light mode trước khi mở adminview
-                    try {
-                        UIManager.setLookAndFeel(new FlatLightLaf());
-                        // Cập nhật giao diện tất cả cửa sổ hiện tại
-                        for (Window window : Window.getWindows()) {
-                            SwingUtilities.updateComponentTreeUI(window);
-                        }
-                    } catch (UnsupportedLookAndFeelException ex) {
-                        ex.printStackTrace();
-                    }
+                boolean isAdmin = model.kiemtradangnhapAdmin(tenDangNhap, matKhau);
+                boolean isNhanVien = model.kiemtradangnhapNhanvien(tenDangNhap, matKhau);
 
-                    if (role.equalsIgnoreCase("admin")) {
-                        new adminview().setVisible(true);
-                    } else {
-                        // new NhanVienView().setVisible(true);
-                    }
+                if (isAdmin){
+                    setGiaoDien();
+                    new adminview().setVisible(true);
                     view.dispose();
+                } else if (isNhanVien) {
+                    setGiaoDien();
+                    new NhanVienView().setVisible(true);
+                    view.dispose();
+                } else {
+                    view.lblThongBao.setText("Tên đăng nhập hoặc mật khẩu không đúng!");
                 }
             }
         });
