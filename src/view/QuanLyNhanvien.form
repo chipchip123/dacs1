@@ -1,523 +1,585 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+package view;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import DataAccessObject.QuanLyNhanVienDAO;
+import controller.NhanVien;
+import java.awt.Color;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
-    </Component>
-  </NonVisualComponents>
-  <Properties>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1214, 673]"/>
-    </Property>
-    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1214, 673]"/>
-    </Property>
-  </Properties>
-  <AuxValues>
-    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
-    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
-    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
-    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
-    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-  </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
-          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelCCCD" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldCCCD" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelSDT" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldSDT" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelNamsinh" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldNamsinh" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelGioitinh" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButtonNam" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonNu" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelHoten" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldHoTen" min="-2" pref="173" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelTaikhoandn" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldTaikhoandn" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelMatkhau" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldMatkhaudn" min="-2" pref="178" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbuttonLamMoi" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="jbuttonThem" min="-2" pref="110" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="157" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbuttonXoa" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="jbuttonCapNhat" min="-2" pref="110" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabelEmail" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldEmail" min="-2" pref="178" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jbuttonXoa" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="jbuttonThem" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="317" max="-2" attributes="0"/>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelHoten" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldHoTen" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelCCCD" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldCCCD" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelTaikhoandn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldTaikhoandn" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelMatkhau" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldMatkhaudn" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelSDT" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jTextFieldSDT" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelNamsinh" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jTextFieldNamsinh" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelGioitinh" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonNam" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonNu" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jbuttonLamMoi" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="jbuttonCapNhat" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-      </Group>
-    </DimensionLayout>
-  </Layout>
-  <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3e" green="2f" red="22" type="rgb"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
+public class QuanLyNhanvien extends javax.swing.JPanel {
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jTextFieldTim" min="-2" pref="218" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="jbuttonTim" min="-2" pref="110" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jbuttonXuatExcel" min="-2" pref="143" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldTim" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="jbuttonXuatExcel" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jbuttonTim" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="24" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Nh&#xe2;n Vi&#xea;n"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldTim">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p t&#xea;n nv c&#x1ea7;n t&#xec;m"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTimActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jbuttonXuatExcel">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3e" green="2f" red="22" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t excel"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonXuatExcelActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jbuttonTim">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3e" green="2f" red="22" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="T&#xec;m"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonTimActionPerformed"/>
-          </Events>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
+    
+    public QuanLyNhanvien() {
+        initComponents();
+        placeholderSetup();
+        jTable1.getSelectionModel().addListSelectionListener(e -> {
+        // Đảm bảo không gọi 2 lần và có dòng được chọn
+        if (!e.getValueIsAdjusting() && jTable1.getSelectedRow() != -1) {
+        int selectedRow = jTable1.getSelectedRow();
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="4">
-                <Column editable="true" title="STT" type="java.lang.Integer"/>
-                <Column editable="true" title="H&#x1ecd; v&#xe0; t&#xea;n" type="java.lang.String"/>
-                <Column editable="true" title="T&#xe0;i kho&#x1ea3;n" type="java.lang.String"/>
-                <Column editable="true" title="M&#x1ead;t kh&#x1ea9;u" type="java.lang.String"/>
-                <Column editable="true" title="N&#x103;m sinh" type="java.lang.String"/>
-                <Column editable="true" title="Gi&#x1edb;i T&#xed;nh" type="java.lang.String"/>
-                <Column editable="true" title="CCCD" type="java.lang.Integer"/>
-                <Column editable="true" title="SDT" type="java.lang.Integer"/>
-                <Column editable="true" title="Email" type="java.lang.String"/>
-              </Table>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JLabel" name="jLabelHoten">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelCCCD">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="CCCD :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelNamsinh">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="N&#x103;m sinh :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelGioitinh">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Gi&#x1edb;i t&#xed;nh"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelSDT">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="SDT :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelTaikhoandn">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="T&#xea;n &#x111;&#x103;ng nh&#x1ead;p :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldHoTen">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldHoTenActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCCCD">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldSDT">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldNamsinh">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTaikhoandn">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelMatkhau">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="M&#x1ead;t Kh&#x1ea9;u :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldMatkhaudn">
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButtonNam">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nam"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNamActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButtonNu">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="N&#x1eef;"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbuttonLamMoi">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3e" green="2f" red="22" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonLamMoiActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbuttonThem">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3e" green="2f" red="22" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Th&#xea;m "/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonThemActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbuttonXoa">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3e" green="2f" red="22" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonXoaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbuttonCapNhat">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3e" green="2f" red="22" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonCapNhatActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelEmail">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Email"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldEmail">
-    </Component>
-  </SubComponents>
-</Form>
+        jTextFieldHoTen.setText(jTable1.getValueAt(selectedRow, 0).toString());
+        jTextFieldCCCD.setText(jTable1.getValueAt(selectedRow, 1).toString());
+        jTextFieldSDT.setText(jTable1.getValueAt(selectedRow, 2).toString());
+        jTextFieldTaikhoandn.setText(jTable1.getValueAt(selectedRow, 3).toString());
+        jTextFieldMatkhaudn.setText(jTable1.getValueAt(selectedRow, 4).toString());
+        jTextFieldNamsinh.setText(jTable1.getValueAt(selectedRow, 5).toString());
+        
+        String gioiTinh = jTable1.getValueAt(selectedRow, 6).toString();
+        if ("Nam".equalsIgnoreCase(gioiTinh)) {
+            jRadioButtonNam.setSelected(true);
+        } else {
+            jRadioButtonNu.setSelected(true);
+        }
+
+        jTextFieldEmail.setText(jTable1.getValueAt(selectedRow, 7).toString());
+    }
+});
+        jTable1.setModel(new DefaultTableModel(
+        new Object[][]{},
+        new String[] { "Tên", "CCCD", "SĐT", "Tài khoản", "Mật khẩu", "Năm sinh", "Giới tính", "Email" }
+        ) {
+        boolean[] canEdit = new boolean[] { false, false, false, false, false, false, false, false };
+
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+            return canEdit[columnIndex];
+        }
+    });
+        loadNhanVienToTable();
+    }
+    
+    public void loadNhanVienToTable() {
+    QuanLyNhanVienDAO dao = new QuanLyNhanVienDAO();
+    List<NhanVien> list = dao.getDanhSachNhanVien();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);  // Xóa hết dòng hiện có trước khi load mới
+
+    for (NhanVien nv : list) {
+        model.addRow(new Object[] {
+            nv.getTen(),
+            nv.getCccd(),
+            nv.getSdt(),
+            nv.getTaikhoan(),
+            nv.getMatkhau(),
+            nv.getNamsinh(),
+            nv.getGioitinh(),
+            nv.getEmail()
+        });
+    }
+}
+    
+    private void placeholderSetup() {
+    jTextFieldTim.setText("Nhập tên nhân viên...");
+    jTextFieldTim.setForeground(Color.GRAY);
+
+    jTextFieldTim.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (jTextFieldTim.getText().equals("Nhập tên nhân viên...")) {
+                jTextFieldTim.setText("");
+                jTextFieldTim.setForeground(Color.BLACK);
+            }
+        }
+
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (jTextFieldTim.getText().isEmpty()) {
+                jTextFieldTim.setText("Nhập tên nhân viên...");
+                jTextFieldTim.setForeground(Color.GRAY);
+            }
+        }
+    });
+}
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldTim = new javax.swing.JTextField();
+        jbuttonXuatExcel = new javax.swing.JButton();
+        jbuttonTim = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabelHoten = new javax.swing.JLabel();
+        jLabelCCCD = new javax.swing.JLabel();
+        jLabelNamsinh = new javax.swing.JLabel();
+        jLabelGioitinh = new javax.swing.JLabel();
+        jLabelSDT = new javax.swing.JLabel();
+        jLabelTaikhoandn = new javax.swing.JLabel();
+        jTextFieldHoTen = new javax.swing.JTextField();
+        jTextFieldCCCD = new javax.swing.JTextField();
+        jTextFieldSDT = new javax.swing.JTextField();
+        jTextFieldNamsinh = new javax.swing.JTextField();
+        jTextFieldTaikhoandn = new javax.swing.JTextField();
+        jLabelMatkhau = new javax.swing.JLabel();
+        jTextFieldMatkhaudn = new javax.swing.JTextField();
+        jRadioButtonNam = new javax.swing.JRadioButton();
+        jRadioButtonNu = new javax.swing.JRadioButton();
+        jbuttonLamMoi = new javax.swing.JButton();
+        jbuttonThem = new javax.swing.JButton();
+        jbuttonXoa = new javax.swing.JButton();
+        jbuttonCapNhat = new javax.swing.JButton();
+        jLabelEmail = new javax.swing.JLabel();
+        jTextFieldEmail = new javax.swing.JTextField();
+
+        setMaximumSize(new java.awt.Dimension(1214, 673));
+        setMinimumSize(new java.awt.Dimension(1214, 673));
+
+        jPanel1.setBackground(new java.awt.Color(34, 47, 62));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setToolTipText("");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Quản Lý Nhân Viên");
+
+        jTextFieldTim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTimActionPerformed(evt);
+            }
+        });
+
+        jbuttonXuatExcel.setBackground(new java.awt.Color(34, 47, 62));
+        jbuttonXuatExcel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbuttonXuatExcel.setForeground(new java.awt.Color(255, 255, 255));
+        jbuttonXuatExcel.setText("Xuất excel");
+        jbuttonXuatExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonXuatExcelActionPerformed(evt);
+            }
+        });
+
+        jbuttonTim.setBackground(new java.awt.Color(34, 47, 62));
+        jbuttonTim.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbuttonTim.setForeground(new java.awt.Color(255, 255, 255));
+        jbuttonTim.setText("Tìm");
+        jbuttonTim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonTimActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextFieldTim, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jbuttonTim, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jbuttonXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldTim, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbuttonXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbuttonTim, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "STT", "Họ và tên", "Tài khoản", "Mật khẩu", "Năm sinh", "Giới Tính", "CCCD", "SDT", "Email"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setShowGrid(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabelHoten.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelHoten.setText("Họ và tên :");
+
+        jLabelCCCD.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelCCCD.setText("CCCD :");
+
+        jLabelNamsinh.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelNamsinh.setText("Năm sinh :");
+
+        jLabelGioitinh.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelGioitinh.setText("Giới tính");
+
+        jLabelSDT.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelSDT.setText("SDT :");
+
+        jLabelTaikhoandn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelTaikhoandn.setText("Tên đăng nhập :");
+
+        jTextFieldHoTen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHoTenActionPerformed(evt);
+            }
+        });
+
+        jLabelMatkhau.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelMatkhau.setText("Mật Khẩu :");
+
+        jRadioButtonNam.setText("Nam");
+        jRadioButtonNam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonNamActionPerformed(evt);
+            }
+        });
+
+        jRadioButtonNu.setText("Nữ");
+
+        jbuttonLamMoi.setBackground(new java.awt.Color(34, 47, 62));
+        jbuttonLamMoi.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbuttonLamMoi.setForeground(new java.awt.Color(255, 255, 255));
+        jbuttonLamMoi.setText("Làm mới");
+        jbuttonLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonLamMoiActionPerformed(evt);
+            }
+        });
+
+        jbuttonThem.setBackground(new java.awt.Color(34, 47, 62));
+        jbuttonThem.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbuttonThem.setForeground(new java.awt.Color(255, 255, 255));
+        jbuttonThem.setText("Thêm ");
+        jbuttonThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonThemActionPerformed(evt);
+            }
+        });
+
+        jbuttonXoa.setBackground(new java.awt.Color(34, 47, 62));
+        jbuttonXoa.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbuttonXoa.setForeground(new java.awt.Color(255, 255, 255));
+        jbuttonXoa.setText("Xóa");
+        jbuttonXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonXoaActionPerformed(evt);
+            }
+        });
+
+        jbuttonCapNhat.setBackground(new java.awt.Color(34, 47, 62));
+        jbuttonCapNhat.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbuttonCapNhat.setForeground(new java.awt.Color(255, 255, 255));
+        jbuttonCapNhat.setText("Cập nhật");
+        jbuttonCapNhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonCapNhatActionPerformed(evt);
+            }
+        });
+
+        jLabelEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelEmail.setText("Email :");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCCCD))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldSDT))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelNamsinh, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldNamsinh))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelGioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonNam)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButtonNu))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelHoten, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelTaikhoandn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldTaikhoandn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelMatkhau, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldMatkhaudn, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(159, 159, 159)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbuttonLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbuttonThem, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbuttonXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbuttonCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbuttonXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbuttonThem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelHoten, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jTextFieldHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelTaikhoandn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jTextFieldTaikhoandn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelMatkhau, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldMatkhaudn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNamsinh, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNamsinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelGioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButtonNam)
+                            .addComponent(jRadioButtonNu))
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbuttonLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbuttonCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53))))
+        );
+    }// </editor-fold>                        
+    
+    private void jTextFieldHoTenActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        
+    }                                               
+
+    private void jRadioButtonNamActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        
+    }                                               
+
+    private void jbuttonLamMoiActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        loadNhanVienToTable();
+    }                                             
+
+    private void jbuttonThemActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        String ten = jTextFieldHoTen.getText();
+        String cccd = jTextFieldCCCD.getText();
+        String sdt = jTextFieldSDT.getText();
+        String taiKhoan = jTextFieldTaikhoandn.getText();
+        String matKhau = jTextFieldMatkhaudn.getText();
+        String gioiTinh = jRadioButtonNam.isSelected() ? "Nam" : "Nữ";
+        String email = jTextFieldEmail.getText();
+        Date namSinh = java.sql.Date.valueOf(jTextFieldNamsinh.getText()); // yyyy-MM-dd
+
+        NhanVien nv = new NhanVien(ten, cccd, sdt, taiKhoan, matKhau, namSinh, gioiTinh, email);
+        QuanLyNhanVienDAO dao = new QuanLyNhanVienDAO();
+
+        if (dao.themNhanVien(nv)) {
+            JOptionPane.showMessageDialog(this, "Thêm thành công!");
+            loadNhanVienToTable();
+        } else {
+            JOptionPane.showMessageDialog(this, "Thêm thất bại!");
+        }
+    }                                           
+
+    private void jbuttonXoaActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        int row = jTable1.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để xóa.");
+            return;
+        }
+
+        String taiKhoan = jTable1.getValueAt(row, 3).toString(); // cột 3 là Tài khoản
+        QuanLyNhanVienDAO dao = new QuanLyNhanVienDAO();
+
+        if (dao.xoaNhanVien(taiKhoan)) {
+            JOptionPane.showMessageDialog(this, "Xóa thành công!");
+            loadNhanVienToTable();
+        } else {
+            JOptionPane.showMessageDialog(this, "Xóa thất bại!");
+        }
+    }                                          
+
+    private void jbuttonCapNhatActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        int row = jTable1.getSelectedRow();
+    if (row == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng để cập nhật.");
+        return;
+        }
+
+        // Lấy dữ liệu từ bảng
+        String ten = jTable1.getValueAt(row, 0).toString();
+        String cccd = jTable1.getValueAt(row, 1).toString();
+        String sdt = jTable1.getValueAt(row, 2).toString();
+        String taiKhoan = jTable1.getValueAt(row, 3).toString();
+        String matKhau = jTable1.getValueAt(row, 4).toString();
+        java.sql.Date namSinh = java.sql.Date.valueOf(jTable1.getValueAt(row, 5).toString());
+        String gioiTinh = jTable1.getValueAt(row, 6).toString();
+        String email = jTable1.getValueAt(row, 7).toString();
+
+        // Tạo đối tượng NhanVien
+        NhanVien nv = new NhanVien(ten, cccd, sdt, taiKhoan, matKhau, namSinh, gioiTinh, email);
+
+        // Gọi DAO cập nhật
+        QuanLyNhanVienDAO dao = new QuanLyNhanVienDAO();
+        if (dao.capNhatNhanVien(nv)) {
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+            loadNhanVienToTable(); // Reload lại bảng
+        } else {
+            JOptionPane.showMessageDialog(this, "Cập nhật thất bại!");
+        }
+    }                                              
+
+    private void jTextFieldTimActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        jTextFieldTim.setText("Nhập tên nhân viên...");
+        jTextFieldTim.setForeground(Color.GRAY);
+
+        jTextFieldTim.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (jTextFieldTim.getText().equals("Nhập tên nhân viên...")) {
+                jTextFieldTim.setText("");
+                jTextFieldTim.setForeground(Color.BLACK);
+            }
+        }
+
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (jTextFieldTim.getText().isEmpty()) {
+                jTextFieldTim.setText("Nhập tên nhân viên...");
+                jTextFieldTim.setForeground(Color.GRAY);
+            }
+        }
+    });
+    }                                             
+
+    private void jbuttonXuatExcelActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        
+    }                                                
+
+    private void jbuttonTimActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        String tenCanTim = jTextFieldTim.getText().trim();
+        if (tenCanTim.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập tên cần tìm.");
+            return;
+        }
+
+        QuanLyNhanVienDAO dao = new QuanLyNhanVienDAO();
+        List<NhanVien> ketQua = dao.timNhanVienTheoTen(tenCanTim);
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // Xóa dữ liệu cũ
+
+        for (NhanVien nv : ketQua) {
+            model.addRow(new Object[]{
+                nv.getTen(), nv.getCccd(), nv.getSdt(), nv.getTaikhoan(), nv.getMatkhau(),
+                nv.getNamsinh(), nv.getGioitinh(), nv.getEmail()
+            });
+        }
+
+        if (ketQua.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Không tìm thấy nhân viên nào.");
+        }
+    }                                          
+    
+    
+
+    // Variables declaration - do not modify                     
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelCCCD;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelGioitinh;
+    private javax.swing.JLabel jLabelHoten;
+    private javax.swing.JLabel jLabelMatkhau;
+    private javax.swing.JLabel jLabelNamsinh;
+    private javax.swing.JLabel jLabelSDT;
+    private javax.swing.JLabel jLabelTaikhoandn;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButtonNam;
+    private javax.swing.JRadioButton jRadioButtonNu;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextFieldCCCD;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldHoTen;
+    private javax.swing.JTextField jTextFieldMatkhaudn;
+    private javax.swing.JTextField jTextFieldNamsinh;
+    private javax.swing.JTextField jTextFieldSDT;
+    private javax.swing.JTextField jTextFieldTaikhoandn;
+    private javax.swing.JTextField jTextFieldTim;
+    private javax.swing.JButton jbuttonCapNhat;
+    private javax.swing.JButton jbuttonLamMoi;
+    private javax.swing.JButton jbuttonThem;
+    private javax.swing.JButton jbuttonTim;
+    private javax.swing.JButton jbuttonXoa;
+    private javax.swing.JButton jbuttonXuatExcel;
+    // End of variables declaration                   
+}
