@@ -30,4 +30,19 @@ public class KhuyenMaiModelDAO {
 
         return model;
     }
+    public static Integer getPhanTramGiamGia(String tenKM) {
+        try {
+            Connection conn = ConnectDatabase.getConnection();
+            String sql = "SELECT PhanTram FROM MaKhuyenMai WHERE TenKhuyenMai = ? AND GETDATE() BETWEEN NgayBatDau AND NgayKetThuc";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, tenKM);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("PhanTram");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
