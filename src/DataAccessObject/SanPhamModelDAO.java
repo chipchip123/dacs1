@@ -147,4 +147,17 @@ public class SanPhamModelDAO {
             rs.getString("HinhAnh")
         );
     }
+
+    public boolean giamSoLuongSanPham(int maSanPham, int soLuongMua) {
+        String sql = "UPDATE SanPham SET SoLuong = SoLuong - ? WHERE MaSanPham = ? AND SoLuong >= ?";
+        try (PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setInt(1, soLuongMua);
+            pst.setInt(2, maSanPham);
+            pst.setInt(3, soLuongMua); // để đảm bảo không giảm quá số lượng có sẵn
+            return pst.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
