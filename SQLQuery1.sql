@@ -1,4 +1,4 @@
-﻿use DoAnCs1
+use DoAnCs1
 -- Tạo bảng NgườiDung nếu chưa có
 CREATE TABLE NguoiDung (
     MaNguoiDung INT PRIMARY KEY IDENTITY(1,1),
@@ -47,22 +47,33 @@ VALUES (1, 1), (1, 2), (1, 3);
 INSERT INTO NguoiDung_PhanQuyen (MaNguoiDung, MaQuyen)
 
 -- sử lý cho phần sản phầm 
+-- Xoá bảng nếu có
+DROP TABLE IF EXISTS SanPham;
+DROP TABLE IF EXISTS LoaiSanPham;
+
+-- Tạo bảng loại sản phẩm: tên làm khóa chính (kiểu chuỗi)
+CREATE TABLE LoaiSanPham (
+    TenLoaiSanPham NVARCHAR(100) PRIMARY KEY
+);
+
+-- Tạo bảng sản phẩm: dùng tên loại sản phẩm thay vì mã
 CREATE TABLE SanPham (
     MaSanPham INT PRIMARY KEY,
     TenSanPham NVARCHAR(100) NOT NULL,
-    MaLoaiSanPham INT NOT NULL FOREIGN KEY REFERENCES LoaiSanPham(MaLoaiSanPham),
+    TenLoaiSanPham NVARCHAR(100) NOT NULL,
     GiaSanPham FLOAT NOT NULL,
     SoLuong INT NOT NULL,
     DonVi NVARCHAR(50) NOT NULL,
     TrangThai NVARCHAR(50) DEFAULT N'Còn hàng',
-    HinhAnh NVARCHAR(255)
+    HinhAnh NVARCHAR(255),
+    FOREIGN KEY (TenLoaiSanPham) REFERENCES LoaiSanPham(TenLoaiSanPham)
 );
-CREATE TABLE LoaiSanPham (
-    MaLoaiSanPham INT PRIMARY KEY IDENTITY(1,1),
-    TenLoaiSanPham NVARCHAR(100) NOT NULL UNIQUE
-);
-DELETE FROM LoaiSanPham; -- nếu có dữ liệu cũ
 
+-- Xoá dữ liệu cũ (nếu cần)
+DELETE FROM SanPham;
+DELETE FROM LoaiSanPham;
+
+-- Thêm các loại sản phẩm (tên)
 INSERT INTO LoaiSanPham (TenLoaiSanPham) VALUES 
 (N'Áo thun'),
 (N'Áo sơ mi'),
@@ -70,14 +81,12 @@ INSERT INTO LoaiSanPham (TenLoaiSanPham) VALUES
 (N'Quần short'),
 (N'Váy đầm'),
 (N'Áo khoác');
-DELETE FROM SanPham; -- nếu cần xóa dữ liệu cũ
-DELETE FROM SanPham;
-INSERT INTO SanPham (MaSanPham, TenSanPham, MaLoaiSanPham, GiaSanPham, SoLuong, DonVi, TrangThai, HinhAnh)
-VALUES (301, N'Quần jean ', 3, 250000, 10, N'Cái', N'Còn hàng', N'jeanrach.jpg');
 
-INSERT INTO SanPham (MaSanPham, TenSanPham, MaLoaiSanPham, GiaSanPham, SoLuong, DonVi, TrangThai, HinhAnh)
-VALUES (302, N'Quần đùi', 3, 250000, 10, N'Cái', N'Còn hàng', N'quandui.jpg');
-
+-- Thêm sản phẩm (liên kết theo tên loại sản phẩm)
+INSERT INTO SanPham (MaSanPham, TenSanPham, TenLoaiSanPham, GiaSanPham, SoLuong, DonVi, TrangThai, HinhAnh)
+VALUES 
+(301, N'Quần jean rách', N'Quần jean', 250000, 10, N'Cái', N'Còn hàng', N'jeanrach.jpg'),
+(302, N'Quần đùi thể thao', N'Quần short', 180000, 15, N'Cái', N'Còn hàng', N'quandui.jpg');
 
 SELECT *
  FROM SanPham
