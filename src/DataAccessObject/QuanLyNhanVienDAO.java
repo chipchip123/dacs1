@@ -6,8 +6,13 @@ import config.ConnectDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class QuanLyNhanVienDAO {
     
@@ -65,8 +70,8 @@ public class QuanLyNhanVienDAO {
     } catch (SQLException e) {
         e.printStackTrace();
         return false;
-    }
-}
+        }
+    }   
     public boolean capNhatNhanVien(NhanVien nv) {
     try (Connection conn = ConnectDatabase.getConnection()) {
         String sql = "UPDATE NhanVien SET Ten = ?, CCCD = ?, SoDienThoai = ?, MatKhau = ?, NamSinh = ?, GioiTinh = ?, Email = ? WHERE TaiKhoan = ?";
@@ -111,6 +116,54 @@ public class QuanLyNhanVienDAO {
             e.printStackTrace();
         }
         return danhsach;
+    }
+    
+    public boolean xuatDanhSachNhanVienRaExcel(File file) {
+        List<NhanVien> danhSach = getDanhSachNhanVien();
+        if (danhSach.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu nhân viên để xuất!", "Thông báo", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        try (Workbook wb = new XSSFWorkbook(); FileOutputStream out = new FileOutputStream(file)) {
+            XSSFSheet sheet = (XSSFSheet) wb.createSheet("Danh sách nhân viên");
+
+            // 1) Ghi header
+            String[] headers = { "Tên", "CCCD", "SĐT", "Tài khoản", "Mật khẩu", "Năm sinh", "Giới tính", "Email" };
+            Row headerRow = sheet.createRow(0);
+            for (int i = 0; i < headers.length; i++) {
+                headerRow.createCell(i).setCellValue(headers[i]);
+            }
+
+            // 2) Ghi dữ liệu
+            int rowIndex = 1;
+            for (NhanVien nv : danhSach) {
+                Row row = sheet.createRow(rowIndex++);
+                row.createCell(0).setCellValue(nv.getTen());
+                row.createCell(1).setCellValue(nv.getCccd());
+                row.createCell(2).setCellValue(nv.getSdt());
+                row.createCell(3).setCellValue(nv.getTaikhoan());
+                row.createCell(4).setCellValue(nv.getMatkhau());
+                row.createCell(5).setCellValue(nv.getNamsinh().toString());
+                row.createCell(6).setCellValue(nv.getGioitinh());
+                row.createCell(7).setCellValue(nv.getEmail());
+            }
+
+            // 3) Tự động điều chỉnh độ rộng
+            for (int i = 0; i < headers.length; i++) {
+                sheet.autoSizeColumn(i);
+            }
+
+            wb.write(out);
+
+            JOptionPane.showMessageDialog(null, "Xuất Excel thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi khi xuất Excel:\n" + e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
     }
 }
 
