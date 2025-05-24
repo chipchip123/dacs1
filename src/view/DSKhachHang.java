@@ -1,9 +1,10 @@
-package javaapplication1;
+package view;
 
-/**
- *
- * @author felix
- */
+import DataAccessObject.KhachHangDAO;
+import model.KhachHang;
+import java.time.LocalDate;
+import javax.swing.table.DefaultTableModel;
+
 public class DSKhachHang extends javax.swing.JPanel {
 
     /**
@@ -11,6 +12,9 @@ public class DSKhachHang extends javax.swing.JPanel {
      */
     public DSKhachHang() {
         initComponents();
+        jTable1.setModel(KhachHangDAO.getAllKhachHangModel());
+        LocalDate today = LocalDate.now();
+        jTextField3.setText(today.toString());
     }
 
     /**
@@ -212,7 +216,34 @@ public class DSKhachHang extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String sdt = jTextField1.getText().trim();
+        String ten = jTextField2.getText().trim();
+        String ngayTaoStr = jTextField3.getText().trim();
+
+        if (sdt.isEmpty() || ten.isEmpty() || ngayTaoStr.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin.");
+            return;
+        }
+
+        try {
+            LocalDate ngayTao = LocalDate.parse(ngayTaoStr); // yêu cầu format yyyy-MM-dd
+            KhachHang kh = new KhachHang(sdt, ten, ngayTao, 0);
+
+            if (KhachHangDAO.themKhachHang(kh)) {
+                // Cập nhật jTable
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.addRow(new Object[]{ten, sdt, 0});
+                javax.swing.JOptionPane.showMessageDialog(this, "Đăng ký thành công!");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Đăng ký thất bại. Có thể số điện thoại đã tồn tại.");
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Lỗi định dạng ngày (yyyy-MM-dd).");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
