@@ -624,6 +624,13 @@ public class BanHangView extends javax.swing.JPanel {
             }
         }
 
+                KhachHangDAO khDAO = new KhachHangDAO();
+        String soDienThoai = jTextField2.getText().trim();
+                boolean diemCong = khDAO.congDiemTichLuy(soDienThoai, 1); // cộng 1 điểm
+                if (!diemCong) {
+                    System.out.println("Không thể cộng điểm cho khách hàng " + soDienThoai);
+                }
+
         JOptionPane.showMessageDialog(this, "Thanh toán thành công!");
         if (doiHangPanel != null) {
             doiHangPanel.loadHoaDon(); // load lại hóa đơn nếu có
